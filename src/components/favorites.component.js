@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 export default class Favorites extends Component {
   constructor(props) {
     super(props);
@@ -52,8 +53,21 @@ export default class Favorites extends Component {
 
   render() {
     return (
+
+
       <div>
         <h3>Add Favorite Dish</h3>
+
+<img src="https://media.newstracklive.com/uploads/lifestyle-health/food-recipe/May/20/big_thumb/hyderabad_5ce2c5ebbbb17.PNG" alt="Biryani" width="180" height="160"></img>
+<p><b>Biryani</b> dishId  -  121210</p>
+<img src="https://sukhis.com/wp-content/uploads/2020/01/Dosa.jpg" alt="Biryani" width="180" height="160"></img>
+<p><b>Masala Dosa</b> dishId  -  121211</p>
+<img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/happytrioexplains-gmail.com/Tandoori_Paneer_Samosa.jpg" alt="Biryani" width="180" height="160"></img>
+<p><b>Samosa</b> dishId  -  121212</p>
+<img src="https://www.culturalindia.net/iliimages/Gujarati-Food-1.jpg" alt="Biryani" width="180" height="160"></img>
+<p><b>Gujarathi Special</b> dishId  -  121213</p>
+
+
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
             <label>UserId: </label>
@@ -64,7 +78,6 @@ export default class Favorites extends Component {
                 onChange={this.onChangeuserId}
                 />
           </div>
-
           <div className="form-group"> 
             <label>DishId: </label>
             <input  type="text"
@@ -79,7 +92,12 @@ export default class Favorites extends Component {
             <input type="submit" value="Add Favorite" className="btn btn-primary" />
           </div>
         </form>
+
       </div>
     )
   }
 }
+
+
+
+

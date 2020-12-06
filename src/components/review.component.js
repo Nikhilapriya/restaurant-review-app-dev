@@ -72,6 +72,15 @@ export default class review extends Component {
     return (
       <div>
         <h3>Add comments on your favorite Dish</h3>
+
+        <img src="https://media.newstracklive.com/uploads/lifestyle-health/food-recipe/May/20/big_thumb/hyderabad_5ce2c5ebbbb17.PNG" alt="Biryani" width="180" height="160"></img>
+<p><b>Biryani</b> dishId  -  121210</p>
+<img src="https://sukhis.com/wp-content/uploads/2020/01/Dosa.jpg" alt="Biryani" width="180" height="160"></img>
+<p><b>Masala Dosa</b> dishId  -  121211</p>
+<img src="https://www.archanaskitchen.com/images/archanaskitchen/1-Author/happytrioexplains-gmail.com/Tandoori_Paneer_Samosa.jpg" alt="Biryani" width="180" height="160"></img>
+<p><b>Samosa</b> dishId  -  121212</p>
+<img src="https://www.culturalindia.net/iliimages/Gujarati-Food-1.jpg" alt="Biryani" width="180" height="160"></img>
+<p><b>Gujarathi Special</b> dishId  -  121213</p>
         <form onSubmit={this.onSubmit}>
 
           <div className="form-group"> 
@@ -134,6 +143,7 @@ export default class review extends Component {
             </select>
           </div>
           
+img src"https://media.newstracklive.com/uploads/lifestyle-health/food-recipe/May/20/big_thumb/hyderabad_5ce2c5ebbbb17.PNG" alt="Biryani" width="180" height="160"></img>"
           
           <div className="form-group">
             <label>adedOn: </label>

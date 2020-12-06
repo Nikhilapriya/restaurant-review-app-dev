@@ -12,7 +12,9 @@ A-list clientele in Hong Kong. Featuring four of the best three-star <b>Michelin
 know what will arrive on your plate the next time you visit us.<br/>
 The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, <br/>
 <b>Mr. Peter Pan</b>, that featured for the first time the world's best cuisines in a pan.<br/></p>
-
+<br/><h3>
+    Follow us on
+</h3><br/>
 <img src="https://i.insider.com/57333f71dd089577098b46bc?width=700&format=jpeg&auto=webp" alt="instagram" width="60" height="50"></img>
 <a href="https://www.instagram.com/">Instagram</a><br/>
 <img src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo-500x350.png" alt="instagram" width="60" height="50"></img>

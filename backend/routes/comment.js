@@ -9,12 +9,12 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
   const comment = req.body.comment;
-  const userId = req.body.userId;
+  const userName = req.body.userName;
   const dishId = req.body.dishId;
   const addedOn = req.body.addedOn;
 
 
-  const newComment = new Comment({userId,dishId,comment,addedOn});
+  const newComment = new Comment({userName,dishId,comment,addedOn});
 
   newComment.save()
     .then(() => res.json('Comment added!'))

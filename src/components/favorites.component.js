@@ -6,11 +6,11 @@ export default class Favorites extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeuserId = this.onChangeuserId.bind(this);
+    this.onChangeuserName = this.onChangeuserName.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      userId: ''
+      userName: ''
     }
 
     this.onChangedishId = this.onChangedishId.bind(this);
@@ -21,9 +21,9 @@ export default class Favorites extends Component {
     }
   }
 
-  onChangeuserId(e) {
+  onChangeuserName(e) {
     this.setState({
-      userId: e.target.value
+      userName: e.target.value
     })
   }
   
@@ -36,7 +36,7 @@ export default class Favorites extends Component {
     e.preventDefault();
 
     const fav = {
-      userId: this.state.userId,
+      userName: this.state.userName,
       dishId: this.state.dishId
     }
 
@@ -46,7 +46,7 @@ export default class Favorites extends Component {
       .then(res => console.log(res.data));
 
     this.setState({
-      userId: '',
+      userName: '',
       dishId:''
     })
   }
@@ -70,12 +70,12 @@ export default class Favorites extends Component {
 
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
-            <label>UserId: </label>
+            <label>userName: </label>
             <input  type="text"
                 required
                 className="form-control"
-                value={this.state.userId}
-                onChange={this.onChangeuserId}
+                value={this.state.userName}
+                onChange={this.onChangeuserName}
                 />
           </div>
           <div className="form-group"> 

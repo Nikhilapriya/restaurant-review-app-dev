@@ -4,7 +4,7 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <div>
-        <p>You are on the home  component!</p>
+        <p>You are on the <b>HOME</b>  component!</p>
       </div>
     )
   }

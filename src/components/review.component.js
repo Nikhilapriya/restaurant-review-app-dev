@@ -5,31 +5,31 @@ export default class review extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeuserId = this.onChangeuserId.bind(this);
+    this.onChangeuserName = this.onChangeuserName.bind(this);
     this.onChangedishId = this.onChangedishId.bind(this);
     this.onChangecomment = this.onChangecomment.bind(this);
     //this.onChangeaddedOn = this.onChangeaddedOn.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      userId: '',
+      userName: '',
       dishId: '',
       comment: '',
       //adedOn: '',
-      users: []
+      dishes: []
     }
   }
 
   componentDidMount() {
     this.setState({ 
-      users: ['test user'],
-      userId: 'test user'
+      dishes: ['121210','121211','121212','121213'],
+      dishId: ''
     });
   }
 
-  onChangeuserId(e) {
+  onChangeuserName(e) {
     this.setState({
-      userId: e.target.value
+      userName: e.target.value
     });
   }
 
@@ -55,7 +55,7 @@ export default class review extends Component {
     e.preventDefault();
   
     const restaurantreview = {
-      userId: this.state.userId,
+      userName: this.state.userName,
       dishId: this.state.dishId,
       comment: this.state.comment,
       //adedOn: this.state.adedOn,
@@ -82,17 +82,16 @@ export default class review extends Component {
 <img src="https://www.culturalindia.net/iliimages/Gujarati-Food-1.jpg" alt="Biryani" width="180" height="160"></img>
 <p><b>Gujarathi Special</b> dishId  -  121213</p>
         <form onSubmit={this.onSubmit}>
-
           <div className="form-group"> 
-            <label>UserId: </label>
+            <label>userName: </label>
             <input  type="text"
                 required
                 className="form-control"
-                value={this.state.userId}
-                onChange={this.onChangeuserId}
+                value={this.state.userName}
+                onChange={this.onChangeuserName}
                 />
           </div>
-          <div className="form-group"> 
+          {/* <div className="form-group"> 
             <label>dishId: </label>
             <input  type="text"
                 required
@@ -100,6 +99,23 @@ export default class review extends Component {
                 value={this.state.dishId}
                 onChange={this.onChangedishId}
                 />
+          </div> */}
+          <div className="form-group"> 
+            <label>DishId: </label>
+            <select ref="userInput"
+                required
+                className="form-control"
+                value={this.state.dishId}
+                onChange={this.onChangedishIde}>
+                {
+                  this.state.dishes.map(function(dish) {
+                    return <option 
+                      key={dish}
+                      value={dish}>{dish}
+                      </option>;
+                  })
+                }
+            </select>
           </div>
           <div className="form-group">
             <label>comment: </label>
@@ -130,8 +146,8 @@ export default class review extends Component {
             <select ref="userInput"
                 required
                 className="form-control"
-                value={this.state.userId}
-                onChange={this.onChangeuserId}>
+                value={this.state.userName}
+                onChange={this.onChangeuserName}>
                 {
                   this.state.users.map(function(user) {
                     return <option 

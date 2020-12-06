@@ -1,87 +1,85 @@
-import React from 'react';
-import { Media, Breadcrumb, BreadcrumbItem, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { baseUrl } from '../shared/baseUrl';
-import { Loading } from './LoadingComponent';
+import React, { Component } from 'react';
+import axios from 'axios';
 
-function RenderMenuItem({ dish, deleteFavorite }) {
-    if(dish){
-        return(
-            <Media tag="li">
-                <Media left middle>
-                    <Media height="250" width="250" object src={baseUrl + dish.image} alt={dish.name} />
-                </Media>
-                <Media body className="ml-5">
-                    <Media heading>{dish.name}</Media>
-                    <p>{dish.description}</p>
-                    <Button outline color="danger" onClick={() => deleteFavorite(dish._id)}>
-                        <span className="fa fa-times"></span>
-                    </Button>
-                </Media>
-            </Media>
-        );
+export default class Favorites extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onChangeuserId = this.onChangeuserId.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      userId: ''
     }
-    else{
-        return(
-            <div className="container">
-                <div className="row">
-                    <h4>You have no favorites</h4>
-                </div>
-            </div>
-        );
+
+    this.onChangedishId = this.onChangedishId.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
+    this.state = {
+      dishId: ''
     }
+  }
+
+  onChangeuserId(e) {
+    this.setState({
+      userId: e.target.value
+    })
+  }
+  
+  onChangedishId(e) {
+    this.setState({
+      dishId: e.target.value
+    })
+  }
+  onSubmit(e) {
+    e.preventDefault();
+
+    const fav = {
+      userId: this.state.userId,
+      dishId: this.state.dishId
+    }
+
+    console.log(fav);
+
+    axios.post('http://localhost:5000/favorite/add', fav)
+      .then(res => console.log(res.data));
+
+    this.setState({
+      userId: '',
+      dishId:''
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>Add Favorite Dish</h3>
+        <form onSubmit={this.onSubmit}>
+          <div className="form-group"> 
+            <label>UserId: </label>
+            <input  type="text"
+                required
+                className="form-control"
+                value={this.state.userId}
+                onChange={this.onChangeuserId}
+                />
+          </div>
+
+          <div className="form-group"> 
+            <label>DishId: </label>
+            <input  type="text"
+                required
+                className="form-control"
+                value={this.state.dishId}
+                onChange={this.onChangedishId}
+                />
+          </div>
+          
+          <div className="form-group">
+            <input type="submit" value="Add Favorite" className="btn btn-primary" />
+          </div>
+        </form>
+      </div>
+    )
+  }
 }
-
-const Favorites = (props) => {
-
-    if (props.favorites.isLoading) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <Loading />
-                </div>
-            </div>
-        );
-    }
-    else if (props.favorites.errMess) {
-        return(
-            <div className="container">
-                <div className="row">
-                    <h4>{props.favorites.errMess}</h4>
-                </div>
-            </div>
-        )
-    }
-    else if (props.favorites.favorites) {
-
-        const favorites = props.favorites.favorites.dishes.map((dish) => {
-            return (
-                <div key={dish._id} className="col-12 mt-5">
-                    <RenderMenuItem dish={dish} deleteFavorite={props.deleteFavorite} />
-                </div>
-            );
-        });
-
-        return(
-            <div className="container">
-                <div className="row">
-                    <Breadcrumb>
-                        <BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>
-                        <BreadcrumbItem active>My Favorites</BreadcrumbItem>
-                    </Breadcrumb>
-                    <div className="col-12">
-                        <h3>My Favorites</h3>
-                        <hr />
-                    </div>
-                </div>
-                <div className="row">
-                    <Media list>
-                        {favorites}
-                    </Media>
-                </div>
-            </div>
-        );
-    }
-}
-
-export default Favorites;

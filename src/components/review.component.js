@@ -8,14 +8,14 @@ export default class review extends Component {
     this.onChangeuserId = this.onChangeuserId.bind(this);
     this.onChangedishId = this.onChangedishId.bind(this);
     this.onChangecomment = this.onChangecomment.bind(this);
-    this.onChangeaddedOn = this.onChangeaddedOn.bind(this);
+    //this.onChangeaddedOn = this.onChangeaddedOn.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       userId: '',
       dishId: '',
       comment: '',
-      adedOn: '',
+      //adedOn: '',
       users: []
     }
   }
@@ -45,11 +45,11 @@ export default class review extends Component {
     });
   }
 
-  onChangeaddedOn(e) {
+  /*onChangeaddedOn(e) {
     this.setState({
       adedOn: e.target.value
     });
-  }
+  }*/
 
   onSubmit(e) {
     e.preventDefault();
@@ -58,7 +58,7 @@ export default class review extends Component {
       userId: this.state.userId,
       dishId: this.state.dishId,
       comment: this.state.comment,
-      adedOn: this.state.adedOn,
+      //adedOn: this.state.adedOn,
     };
   
     console.log(restaurantreview);
@@ -101,15 +101,7 @@ export default class review extends Component {
                 onChange={this.onChangecomment}
                 />
           </div>
-          <div className="form-group">
-            <label>adedOn: </label>
-            <input 
-                type="text" 
-                className="form-control"
-                value={this.state.adedOn}
-                onChange={this.onChangeaddedOn}
-                />
-          </div>
+          
 
           <div className="form-group">
             <input type="submit" value="Add comment" className="btn btn-primary" />
@@ -140,5 +132,16 @@ export default class review extends Component {
                   })
                 }
             </select>
+          </div>
+          
+          
+          <div className="form-group">
+            <label>adedOn: </label>
+            <input 
+                type="text" 
+                className="form-control"
+                value={this.state.adedOn}
+                onChange={this.onChangeaddedOn}
+                />
           </div>"
 */

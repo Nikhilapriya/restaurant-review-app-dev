@@ -10,16 +10,25 @@ export default class Favorites extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      userId: ''
+      userId: '',
     }
-
+    
     this.onChangedishId = this.onChangedishId.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      dishId: ''
+      dishId: '',
+      dishes:[]
     }
   }
+
+  componentDidMount() {
+    this.setState({ 
+      dishes: ['121210','121211','121212','121213'],
+      dishId: 'test user'
+    });
+  }
+
 
   onChangeuserId(e) {
     this.setState({
@@ -44,10 +53,12 @@ export default class Favorites extends Component {
 
     axios.post('http://localhost:5000/favorite/add', fav)
       .then(res => console.log(res.data));
+      window.location = '/fav';
 
     this.setState({
       userId: '',
-      dishId:''
+      dishId:'',
+      dishes:[]
     })
   }
 
@@ -68,7 +79,24 @@ export default class Favorites extends Component {
 <p><b>Gujarathi Special</b> dishId  -  121213</p>
 
 
-        <form onSubmit={this.onSubmit}>
+<form onSubmit={this.onSubmit}>
+          <div className="form-group"> 
+            <label>DishId (id for the dish is mentioned above for your reference): </label>
+            <select ref="userInput"
+                required
+                className="form-control"
+                value={this.state.dishId}
+                onChange={this.onChangedishId}>
+                {
+                  this.state.dishes.map(function(user) {
+                    return <option 
+                      key={user}
+                      value={user}>{user}
+                      </option>;
+                  })
+                }
+            </select>
+          </div>
           <div className="form-group"> 
             <label>Username: </label>
             <input  type="text"
@@ -77,8 +105,8 @@ export default class Favorites extends Component {
                 value={this.state.userId}
                 onChange={this.onChangeuserId}
                 />
-          </div>
-          <div className="form-group"> 
+          </div> 
+          {/* <div className="form-group"> 
             <label>DishId: </label>
             <input  type="text"
                 required
@@ -86,7 +114,7 @@ export default class Favorites extends Component {
                 value={this.state.dishId}
                 onChange={this.onChangedishId}
                 />
-          </div>
+          </div> */}
           
           <div className="form-group">
             <input type="submit" value="Add Favorite" className="btn btn-primary" />

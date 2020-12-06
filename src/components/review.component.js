@@ -70,8 +70,7 @@ export default class RestaurantReview extends Component {
   render() {
     return (
       <div>
-        <h3>Add your Comments</h3>
-
+        <h3>Add Comments on your Favorite Dish</h3>
         <img src="https://media.newstracklive.com/uploads/lifestyle-health/food-recipe/May/20/big_thumb/hyderabad_5ce2c5ebbbb17.PNG" alt="Biryani" width="180" height="160"></img>
 <p><b>Biryani</b> dishId  -  121210</p>
 <img src="https://sukhis.com/wp-content/uploads/2020/01/Dosa.jpg" alt="Biryani" width="180" height="160"></img>
@@ -83,7 +82,7 @@ export default class RestaurantReview extends Component {
 
         <form onSubmit={this.onSubmit}>
           <div className="form-group"> 
-            <label>dishId: </label>
+            <label>dishId (id for the dish is mentioned above for your reference): </label>
             <select ref="userInput"
                 required
                 className="form-control"

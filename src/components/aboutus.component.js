@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 export default class ExercisesList extends Component {
   render() {
     return (
+      <div style={{ backgroundImage: `url(https://www.freepptbackgrounds.net/wp-content/uploads/2020/03/Breakfast-food-Backgrounds-750x460.jpg)`,
+       backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+       }}>
       <div>
           <h1>Our History</h1>
         <p>
@@ -12,6 +17,7 @@ A-list clientele in Hong Kong. Featuring four of the best three-star <b>Michelin
 know what will arrive on your plate the next time you visit us.<br/>
 The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, <br/>
 <b>Mr. Peter Pan</b>, that featured for the first time the world's best cuisines in a pan.<br/></p>
+</div>
 <br/><h3>
     Follow us on
 </h3><br/>

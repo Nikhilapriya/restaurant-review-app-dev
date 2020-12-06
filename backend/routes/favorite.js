@@ -8,11 +8,11 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const userName = req.body.userName;
+  const userId = req.body.userId;
   const dishId = req.body.dishId;
 
 
-  const newFavorite = new Favorite({userName,dishId});
+  const newFavorite = new Favorite({userId,dishId});
 
   newFavorite.save()
     .then(() => res.json('Favorite added!'))
